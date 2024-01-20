@@ -1,0 +1,48 @@
+If this C code snippet has vulnerabilities, output Yes; otherwise, output No. Please output only Yes or No, no need to output any other characters.
+// Code Start
+int main(int argc, const char **argv)
+{{
+DCRaw *d = new DCRaw;
+return d->main(argc, argv);
+}}
+// Code End
+
+// Detection
+Yes
+
+If this C code snippet has vulnerabilities, output Yes; otherwise, output No. Please output only Yes or No, no need to output any other characters.
+// Code Start
+static int jas_iccgetuint64(jas_stream_t *in, jas_iccuint64_t *val)
+{{
+ulonglong tmp;
+if (jas_iccgetuint(in, 8, &tmp))
+return -1;
+*val = tmp;
+return 0;
+}}
+// Code End
+
+// Detection
+No
+
+If this C code snippet has vulnerabilities, output Yes; otherwise, output No. Please output only Yes or No, no need to output any other characters.
+// Code Start
+void SendStatus(struct mg_connection* connection,
+const struct mg_request_info* request_info,
+void* user_data) {{
+std::string response = "HTTP/1.1 200 OK\r\n"
+"Content-Length:2\r\n\r\n"
+"ok";
+mg_write(connection, response.data(), response.length());
+}}
+// Code End
+
+// Detection
+Yes
+
+If this C code snippet has vulnerabilities, output Yes; otherwise, output No. Please output only Yes or No, no need to output any other characters.
+// Code Start
+{function}
+// Code End
+
+// Detection

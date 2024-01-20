@@ -1,0 +1,61 @@
+Provide qualitative severity ratings of CVSS v2.0 for the vulnerable C code snippet. Please output only High or Medium or Low, no need to output any other characters.
+// Code Start
+iakerb_gss_export_sec_context(OM_uint32 *minor_status,
+gss_ctx_id_t *context_handle,
+gss_buffer_t interprocess_token)
+{{
+OM_uint32 maj;
+iakerb_ctx_id_t ctx = (iakerb_ctx_id_t)context_handle;
+if (!ctx->established)
+return GSS_S_UNAVAILABLE;
+maj = krb5_gss_export_sec_context(minor_status, &ctx->gssc,
+interprocess_token);
+if (ctx->gssc == GSS_C_NO_CONTEXT) {{
+iakerb_release_context(ctx);
+*context_handle = GSS_C_NO_CONTEXT;
+}}
+return maj;
+}}
+// Code End
+
+// Assessment
+High
+
+Provide qualitative severity ratings of CVSS v2.0 for the vulnerable C code snippet. Please output only High or Medium or Low, no need to output any other characters.
+// Code Start
+void SendStatus(struct mg_connection* connection,
+const struct mg_request_info* request_info,
+void* user_data) {{
+std::string response = "HTTP/1.1 200 OK\r\n"
+"Content-Length:2\r\n\r\n"
+"ok";
+mg_write(connection, response.data(), response.length());
+}}
+// Code End
+
+// Assessment
+Medium
+
+Provide qualitative severity ratings of CVSS v2.0 for the vulnerable C code snippet. Please output only High or Medium or Low, no need to output any other characters.
+// Code Start
+MagickExport int LocaleUppercase(const int c)
+{{
+if (c < 0)
+return(c);
+#if defined(MAGICKCORE_LOCALE_SUPPORT)
+if (c_locale != (locale_t) NULL)
+return(toupper_l((int) ((unsigned char) c),c_locale));
+#endif
+return(toupper((int) ((unsigned char) c)));
+}}
+// Code End
+
+// Assessment
+Low
+
+Provide qualitative severity ratings of CVSS v2.0 for the vulnerable C code snippet. Please output only High or Medium or Low, no need to output any other characters.
+// Code Start
+{function}
+// Code End
+
+// Assessment

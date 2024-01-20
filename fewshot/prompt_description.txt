@@ -1,0 +1,40 @@
+Provide a CVE description for the vulnerable C code snippet.
+// Code Start
+void WaitForCallback() {{
+if (!use_audio_thread_) {{
+base::RunLoop().RunUntilIdle();
+return;
+}}
+media::WaitableMessageLoopEvent event;
+audio_thread_.task_runner()->PostTaskAndReply(
+FROM_HERE, base::Bind(&base::DoNothing), event.GetClosure());
+event.RunAndWait();
+base::RunLoop().RunUntilIdle();
+}}
+// Code End
+
+// Description
+libimageworsener.a in ImageWorsener before 1.3.1 has *left shift cannot be represented in type int* undefined behavior issues, which might allow remote attackers to cause a denial of service (application crash) or possibly have unspecified other impact via a crafted image, related to imagew-bmp.c and imagew-util.c.
+
+Provide a CVE description for the vulnerable C code snippet.
+// Code Start
+static void build_l4proto_dccp(const struct nf_conntrack *ct, struct nethdr *n)
+{{
+ct_build_group(ct, ATTR_GRP_ORIG_PORT, n, NTA_PORT,
+sizeof(struct nfct_attr_grp_port));
+if (!nfct_attr_is_set(ct, ATTR_DCCP_STATE))
+return;
+ct_build_u8(ct, ATTR_DCCP_STATE, n, NTA_DCCP_STATE);
+ct_build_u8(ct, ATTR_DCCP_ROLE, n, NTA_DCCP_ROLE);
+}}
+// Code End
+
+// Description
+rootdir/init.rc in Android 4.x before 4.4.4 does not ensure that the /data/tombstones directory exists for the Debuggerd component, which allows attackers to gain privileges via a crafted application, aka internal bug 26403620.
+
+Provide a CVE description for the vulnerable C code snippet.
+// Code Start
+{function}
+// Code End
+
+// Description
